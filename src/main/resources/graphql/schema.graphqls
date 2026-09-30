@@ -1,0 +1,23 @@
+type BookResponseDto {
+    id: ID
+    title: String
+    author: String
+    price: Float
+}
+
+input BookRequestDto {
+    title: String!
+    author: String!
+    price: Float!
+}
+
+type Query {
+    kitabIdUchun(id: ID!): BookResponseDto
+    books : [BookResponseDto!]!
+}
+
+type Mutation {
+    createBook(bookRequestDto: BookRequestDto! ): BookResponseDto
+    updateBook(id: ID!, bookRequestDto: BookRequestDto!): BookResponseDto
+    deleteBook(id: ID!): BookResponseDto
+}
